@@ -39,3 +39,10 @@ url: "https://vlsf.github.io"
 theme: null
 markdown: kramdown
 highlighter: rouge
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "default"
