@@ -2,4 +2,4 @@
 layout: main
 ---
 
-Hello!
+# Sample page

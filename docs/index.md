@@ -2,17 +2,14 @@
 layout: main
 ---
 
-# VLSF
+# Vladimir Fanaskov
 
-I am a researcher/developer... [your intro here]
+Independent researcher.
 
 ### Research Interests
-* 123
-* 456
 
-### MathJax
-When $$a \ne 0$$, there are two solutions to $$ax^2 + bx + c = 0$$ and they are:
-$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$
+* numerical analysis
+* scientific computing
 
 ### What's New
 

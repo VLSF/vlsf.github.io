@@ -31,10 +31,10 @@
 # plugins:
 #   - jekyll-feed
 
-title: VLSF
-description: Personal webpage
+title: Vladimir Fanaskov
+description: Personal website and research archive.
 baseurl: ""
-url: "https://vlsf.github.io"
+url: "https://vladimirfanaskov.com"
 
 theme: null
 markdown: kramdown
