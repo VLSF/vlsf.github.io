@@ -36,5 +36,6 @@ description: Personal webpage
 baseurl: ""
 url: "https://vlsf.github.io"
 
+theme: null
 markdown: kramdown
 highlighter: rouge

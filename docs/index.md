@@ -20,6 +20,6 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$
 * **{{ post.date | date: "%b %d, %Y" }}**: [{{ post.title }}]({{ post.url }})
 {% endfor %}
 
-[See all updates](/archive.html)
+[See all updates](/archive.md)
 
-Check out my [Projects](notes/projects.html).
+Check out my [Projects](notes/projects.md).
