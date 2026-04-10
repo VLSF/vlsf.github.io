@@ -4,7 +4,7 @@ layout: main
 
 # Vladimir Fanaskov
 
-I am a researcher specialising in numerical analysis, scientific computing, and approximation theory. My work explores novel ways to arrange computations, approximate functions, and build models using neural networks and neural operators.
+I am a researcher specialising in numerical analysis, scientific computing, and numerical linear algebra. My work explores novel ways to arrange computations, approximate functions, and build models using neural networks and neural operators.
 
 * [Google Scholar](https://scholar.google.com/citations?user=iK5gdo8AAAAJ&hl=en)
 * [arXiv](https://arxiv.org/search/math?searchtype=author&query=Fanaskov,+V)
