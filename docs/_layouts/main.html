@@ -4,7 +4,17 @@
   <meta charset="utf-8">
   <title>{{ page.title }}</title>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/polyfill/3.111.0/polyfill.min.js?features=es6"></script>
+
+  <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
     body {
@@ -18,10 +28,45 @@
       background-color: #fff;
     }
 
+    pre {
+      background-color: #f7f7f7;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      padding: 12px 16px;
+      margin: 20px 0 20px 15px;
+      overflow-x: auto;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.9em;
+    }
+
+    :not(pre) > code {
+      background-color: #f7f7f7;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.95em;
+    }
+
+    table th, table td {
+        padding-top: 6px;
+        padding-bottom: 6px;
+        padding-right: var(--table-padding, 40px);
+
+        text-align: left;
+      }
+
+      /* Keeps the last column flush with your 900px layout border */
+    table th:last-child, table td:last-child {
+      padding-right: 0;
+    }
+
     @media (max-width: 600px) {
       body {
         margin-left: 10px;
         padding: 10px;
+      }
+      pre {
+            margin-left: 0;
       }
     }
   </style>
