@@ -34,9 +34,11 @@ references:
     note: "I referenced this article in the section where the linear ansatz is integrated and it is claimed that this procedure can be continued to restore the entire Brachistochrone curve by introducing additional breaking points. The solution in the article is not exactly along these lines, but the first part (see Figure 3) is very close to this approach."
 ---
 
+# Deep Brachistochrone
+
 TL;DR: I define the famous Brachistochrone problem and solve it using modern Deep Learning methods. What could go wrong, right?
 
-# Brachistochrone problem
+## Brachistochrone problem
 
 Suppose we have a bead sliding along a wire that connects two points: $(0, 0)$ and $(x_1, y_1)$. We assume that there is no friction, the mass of the bead is $m$, and the gravitational force is $mg$. For convenience, we parametrize the shape of the wire as a function $f(x)$, where $x \in [0, x_1]$, and select coordinates as shown in the picture below.
 
@@ -83,7 +85,7 @@ $$
   </div>
 </details>
 
-# Solution with the calculus of variations
+## Solution with the calculus of variations
 
 Formally, we are interested in finding a smooth function that solves the optimization problem:
 
@@ -178,7 +180,7 @@ $$
 
 Interestingly, a bead attached to a cycloid can actually move upward during part of its trajectory, yet the travel time remains the absolute shortest among any possible curve ([Weisstein](#weisstein)). We will see about that!
 
-# Solution using parametric curves and optimization
+## Solution using parametric curves and optimization
 
 We should not expect to get lucky all the time, as closed-form solutions are rarely available. Instead, a more pragmatic approach is to resort to numerical optimization:
 1. We select a parametric model $f(x;\theta)$ such that $f(0;\theta) = 0$ and $f(\pi;\theta) = 2$ for all $\theta$.
@@ -220,7 +222,7 @@ def make_step_scan(carry, ind, optim, model):
 
 To use this framework, one needs to implement a function that evaluates the parametric model $f(x;\theta)$. How to do this is illustrated below.
 
-## The straight line
+### The straight line
 
 A straight line, $f(x) = \frac{2}{\pi}x$, has no free parameters, so there is nothing to optimize. Its travel time can also be explicitly computed:
 
@@ -230,7 +232,7 @@ $$
 
 By introducing extra breaking points and evaluating the integral on each interval, one can reconstruct the cycloid solution ([Broer, 2014](#broer2014)).
 
-## The quadratic curve
+### The quadratic curve
 
 This is our first non-trivial example. The curve has one free parameter, $\kappa$: $f(x; \kappa) = \frac{2}{\pi}x + \kappa x(x - \pi)$. In code, this parametric curve reads:
 
@@ -267,7 +269,7 @@ print("time", model_time)
 
 This code outputs: `time 4.5505657`.
 
-## The cubic curve
+### The cubic curve
 
 The cubic curve has two parameters, $\alpha$ and $\beta$: $f(x; \alpha, \beta) = \frac{2}{\pi}x + x(x - \pi) (\alpha x + \beta)$.
 
@@ -288,7 +290,7 @@ model_params_ = jnp.array([0.0, 0.0])
 ```
 The travel time we found for the cubic curve is: `time 4.4826336`. The result is slightly better than the quadratic curve! Maybe we can do even better with more parameters?
 
-## The Neural Network
+### The Neural Network
 
 Our ultimate parametric model—a universal approximator *(wink)*—is a feedforward neural network. The unconstrained parametric expression is:
 
@@ -339,7 +341,7 @@ N_updates = 10000
 
 With that many iterations, we got `time 2.2218027`. Wow, that is great! Surely, we can drop it even more with more parameters and iterations.
 
-# Leaderboard
+## Leaderboard
 
 All the travel times we found for the Brachistochrone problem are summarized in the table below:
 
