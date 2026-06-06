@@ -240,7 +240,7 @@ def quadratic_model(model_params, x, x0, x1, y0, y1):
     return y
 ```
 
-ABelow is the implementation of the optimization process:
+Below is the implementation of the optimization process:
 ```python
 N = 128
 x0, x1 = 0, jnp.pi
@@ -288,7 +288,7 @@ model_params_ = jnp.array([0.0, 0.0])
 ```
 The travel time we found for the cubic curve is: `time 4.4826336`. The result is slightly better than the quadratic curve! Maybe we can do even better with more parameters?
 
-The Neural Network
+## The Neural Network
 
 Our ultimate parametric model—a universal approximator *(wink)*—is a feedforward neural network. The unconstrained parametric expression is:
 
