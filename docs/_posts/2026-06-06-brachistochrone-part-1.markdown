@@ -1,7 +1,7 @@
 ---
 layout: main
 title:  "Deep brachistochrone"
-date:   2026-06-04
+date:   2026-06-06
 asset_path: "/assets/2026-06-06-brachistochrone-part-1/"
 references:
   - key: "weisstein"
