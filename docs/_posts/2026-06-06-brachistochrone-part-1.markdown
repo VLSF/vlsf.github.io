@@ -34,7 +34,7 @@ references:
     note: "I referenced this article in the section where the linear ansatz is integrated and it is claimed that this procedure can be continued to restore the entire Brachistochrone curve by introducing additional breaking points. The solution in the article is not exactly along these lines, but the first part (see Figure 3) is very close to this approach."
 ---
 
-# Deep Brachistochrone
+# Deep brachistochrone
 
 TL;DR: I define the famous Brachistochrone problem and solve it using modern Deep Learning methods. What could go wrong, right?
 
