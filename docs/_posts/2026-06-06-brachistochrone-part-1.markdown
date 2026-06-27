@@ -90,7 +90,7 @@ $$
 Formally, we are interested in finding a smooth function that solves the optimization problem:
 
 $$
-\inf_{f(x)}\int_{0}^{x_1}\frac{\sqrt{1 + \left(f^{'}(u)\right)^2}du}{\sqrt{f(u)}} \text{ s.t. }  f \in C^{(1)}([0, x_1]).
+\inf_{f(x)}\int_{0}^{x_1}\frac{\sqrt{1 + \left(f^{'}(u)\right)^2}du}{\sqrt{f(u)}} \text{ s.t. }  f \in C^{(1)}([0, x_1]), f(0) = f_0, f(x_1) = f_1.
 $$
 
 When the problem was initially posed by [Johann Bernoulli in 1696](https://en.wikipedia.org/wiki/Brachistochrone_curve#Introduction_of_the_problem), it was on the cutting edge of mathematics and later turned out to be important to many branches of the natural sciences ([Sussmann, Willems, 1997](#sussmann1997)). Nowadays, the standard solution technique, the [Euler-Lagrange equations](https://en.wikipedia.org/wiki/Euler%E2%80%93Lagrange_equation), can be found everywhere. Following ([Shafer, 2007](#shafer2007)), I derive the general form of the Brachistochrone curve below.
@@ -168,15 +168,31 @@ For convenience, we will use a particular solution that passes through the point
 $$
   \begin{split}
     &f(v) = 1 + \cos(v),\\
-    &x(v) = v + \sin(v) + \pi.
+    &u(v) = v + \sin(v) + \pi.
   \end{split}
 $$
 
 This curve is known as a [cycloid](https://en.wikipedia.org/wiki/Cycloid), and the travel time of the bead is given by:
 
 $$
-\int_{0}^{\pi}\frac{\sqrt{1 + \left(f^{'}(u)\right)^2}du}{\sqrt{f(u)}} = \int_{0}^{x}\frac{1}{f(u)}du = \int_{-\pi}^{0}\frac{1 + \cos(v)}{1 + \cos(v)}dv = \pi = \sqrt{2g} t.
+\int_{0}^{\pi}\frac{\sqrt{1 + \left(f^{'}(u)\right)^2}du}{\sqrt{f(u)}} = \int_{0}^{\pi}\frac{\sqrt{2}}{f(u)}du = \int_{-\pi}^{0}\frac{1 + \cos(v)}{1 + \cos(v)}dv = \sqrt{2}\pi = \sqrt{2g} t.
 $$
+
+<details>
+  <summary><b>Travel time for the cycloid</b></summary>
+  <div style="margin-top: 10px; padding-left: 15px; border-left: 2px solid #ccc;">
+    <p>
+    Observe that:
+    $$
+    f(u)\left(1 + \left(\frac{d f(u)}{du}\right)^2\right) = f(v)\left(1 + \left(\frac{\frac{d f(v)}{dv}}{\frac{d u(v)}{d v}}\right)^2\right) = (1 + \cos(v)) \left(1 + \frac{\left(\sin(v)\right)^{2}}{(1 + \cos(v))^2}\right) = 2.
+    $$
+    Using this identity, we can eliminate the derivative in the integral above and further simplify the integrand by changing variables from $u$ to $v$:
+    $$
+    \int_{0}^{\pi}\frac{\sqrt{1 + \left(f^{'}(u)\right)^2}du}{\sqrt{f(u)}} \underset{f\left(1 + \left(f^{'}\right)^2\right) = 2}{=} \int_{0}^{\pi}\frac{\sqrt{2}}{f(u)}du = \int_{-\pi}^{0}\frac{\sqrt{2}}{1 + \cos(v)} \frac{d u(v)}{dv} dv = \int_{-\pi}^{0}\sqrt{2}\frac{1 + \cos(v)}{1 + \cos(v)} dv = \sqrt{2} \pi
+    $$
+    </p>
+  </div>
+</details>
 
 Interestingly, a bead attached to a cycloid can actually move upward during part of its trajectory, yet the travel time remains the absolute shortest among any possible curve ([Weisstein](#weisstein)). We will see about that!
 
@@ -227,7 +243,7 @@ To use this framework, one needs to implement a function that evaluates the para
 A straight line, $f(x) = \frac{2}{\pi}x$, has no free parameters, so there is nothing to optimize. Its travel time can also be explicitly computed:
 
 $$
-\int_{0}^{\pi}\frac{\sqrt{1 + \left(f^{'}(u)\right)^2}du}{\sqrt{f(u)}} = \sqrt{\frac{2}{\pi} + \frac{\pi}{2}}\int_{0}^{\pi} \frac{du}{\sqrt{u}} =  2\sqrt{\pi}\sqrt{\frac{2}{\pi} + \frac{\pi}{2}} = \sqrt{2gt}.
+\int_{0}^{\pi}\frac{\sqrt{1 + \left(f^{'}(u)\right)^2}du}{\sqrt{f(u)}} = \sqrt{\frac{2}{\pi} + \frac{\pi}{2}}\int_{0}^{\pi} \frac{du}{\sqrt{u}} =  2\sqrt{\pi}\sqrt{\frac{2}{\pi} + \frac{\pi}{2}} = \sqrt{2g}t.
 $$
 
 By introducing extra breaking points and evaluating the integral on each interval, one can reconstruct the cycloid solution ([Broer, 2014](#broer2014)).
@@ -350,7 +366,7 @@ All the travel times we found for the Brachistochrone problem are summarized in 
 |straight line|$5.266$|
 |quadratic|$4.551$|
 |cubic|$4.483$|
-|cycloid|$3.142$|
+|cycloid|$4.443$|
 |neural network (ours)|${\bf 2.221}$|
 {: style="--table-padding: 40px;"}
 
