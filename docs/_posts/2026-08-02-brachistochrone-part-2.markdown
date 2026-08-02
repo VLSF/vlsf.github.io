@@ -1,8 +1,8 @@
 ---
 layout: main
 title:  "Deep brachistochrone: part 2"
-date:   2026-08-03
-asset_path: "/assets/2026-08-03-brachistochrone-part-2/"
+date:   2026-08-02
+asset_path: "/assets/2026-08-02-brachistochrone-part-2/"
 references:
   - key: "gelfand_eng"
     author: "Gelfand, Israel M., Fomin, Sergei V."
