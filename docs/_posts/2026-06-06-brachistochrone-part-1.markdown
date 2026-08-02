@@ -90,7 +90,7 @@ $$
 Formally, we are interested in finding a smooth function that solves the optimization problem:
 
 $$
-\inf_{f(x)}\int_{0}^{x_1}\frac{\sqrt{1 + \left(f^{'}(u)\right)^2}du}{\sqrt{f(u)}} \text{ s.t. }  f \in C^{(1)}([0, x_1]), f(0) = f_0, f(x_1) = f_1.
+\inf_{f(x)}\int_{0}^{x_1}\frac{\sqrt{1 + \left(f^{'}(u)\right)^2}du}{\sqrt{f(u)}} \text{ s.t. }  f \in C^{(2)}([0, x_1]), f(0) = f_0, f(x_1) = f_1.
 $$
 
 When the problem was initially posed by [Johann Bernoulli in 1696](https://en.wikipedia.org/wiki/Brachistochrone_curve#Introduction_of_the_problem), it was on the cutting edge of mathematics and later turned out to be important to many branches of the natural sciences ([Sussmann, Willems, 1997](#sussmann1997)). Nowadays, the standard solution technique, the [Euler-Lagrange equations](https://en.wikipedia.org/wiki/Euler%E2%80%93Lagrange_equation), can be found everywhere. Following ([Shafer, 2007](#shafer2007)), I derive the general form of the Brachistochrone curve below.
