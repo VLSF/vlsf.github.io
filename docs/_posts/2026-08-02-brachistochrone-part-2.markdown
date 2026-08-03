@@ -64,7 +64,7 @@ $$
 x^{\star} = \arg \min_{y} f(y): y, x^{\star} \in \mathbb{R}^{n}, f(y) \in \mathbb{R}.
 $$
 
-Finding a solution to the Euler–Lagrange equations is equivalent to solving $\frac{d f(x)}{dx} = 0$. To ensure that we have a local minimum, we also need to check that $\frac{d^2 f(x)}{dx^2} > 0$ at $x^{\star}$. For a global minimum, the global properties of $f(x)$ must be studied, which is typically much harder. The most familiar and arguably simplest case where we can claim a global minimum has been found is when $f(x)$ is strongly convex. In this case, [a unique global minimum exists](https://en.wikipedia.org/wiki/Convex_function#Properties_of_strongly-convex_functions). Can we do something similar for variational problems? Absolutely.
+Finding a solution to the Euler–Lagrange equations is equivalent to solving $\frac{d f(x)}{dx} = 0$. To ensure that we have a local minimum, we also need to check that $\frac{d^2 f(x)}{dx^2} > 0$ at $x^{\star}$. For a global minimum, the global properties of $f(x)$ must be studied, which is typically much harder. The most familiar and arguably simplest case where we can claim a global minimum has been found is when $f(x)$ is strongly convex. In this case, [a unique global minimum exists](https://en.wikipedia.org/wiki/Convex_function#Properties_of_strongly-convex_functions). Can we do something similar for variational problems?
 
 For variational problems, local optimality is quite easy to establish. To do that, we study the second variation and prove that it is positive on the solution curve.
 
@@ -184,7 +184,7 @@ Global optimality is much harder to study, but luckily for us, our functional is
 
   Detailed proofs can be found in Chapter 6 of ([Gelfand, Fomin, 2000](#gelfand_eng)).
 
-  Consider the Lagrangian $F(v, f, f')$ and the functional $J[f] = \int F(v, f(v), f'(v)) dv$. If we have a candidate for a global minimum $f_0$, it can be compared with an arbitrary curve $w$ with the help of the Weierstrass excess functional:
+  Consider the Lagrangian $F(v, f, f')$ and the functional $J[f] = \int F(v, f(v), f'(v)) dv$. If we have a candidate for a global minimum $f_0$, it can be compared with an arbitrary curve $w$ with the help of
 
   $$
   J[w] - J[f_0] = \int E(v, w(v), p(v, w(v)), w^{'}(v)) dv,
@@ -621,7 +621,7 @@ Specification gaming occurs when an optimization process converges to a solution
 
 I would argue that our core issue wasn't the approximation of the integral itself, but rather the discrepancy between two specific sets: the set of functions we can accurately integrate, and the set of functions a neural network (with a given initialization and SGD) can approximate. While both sets contain good approximations of the cycloid, the second set also contains solutions that our integration method handles poorly. Among those are "solutions" that yield impossibly fast travel times—at least, according to our faulty integration. Can we integrate neural networks better? [The answer may be negative](https://arxiv.org/abs/2505.17751), though I suspect we can still do well enough for most practically relevant cases. For the time being, my advice is simple: **use neural networks only when you have to!** Save them for genuinely high-dimensional problems, or, you know, when you need one more paper to get your PhD.
 
-The Brachistochrone problem has been solved for centuries, making this mostly an academic exercise. But are there practical modern problems where integration leads to specification gaming? Absolutely. Almost all the cases I know of come from [variational methods in quantum mechanics](https://en.wikipedia.org/wiki/Variational_method_(quantum_mechanics)). Today, researchers parameterize wavefunctions using [neural networks](https://deepmind.google/blog/ferminet-quantum-physics-and-chemistry-from-first-principles/) or [tensor neural networks](https://arxiv.org/abs/2207.02754). In the latter case, non-stochastic integration can be used, carrying the exact same risks down the road. A similar situation may occur when neural networks are used to solve Kohn-Sham equations via direct minimization. Ultimately, if your approximation scheme involves a neural network, you must be incredibly careful with your integral estimation.
+The Brachistochrone problem has been solved for centuries, making this mostly an academic exercise. But are there practical modern problems where integration leads to specification gaming? Almost all the cases I know of come from [variational methods in quantum mechanics](https://en.wikipedia.org/wiki/Variational_method_(quantum_mechanics)). Today, researchers parameterize wavefunctions using [neural networks](https://deepmind.google/blog/ferminet-quantum-physics-and-chemistry-from-first-principles/) or [tensor neural networks](https://arxiv.org/abs/2207.02754). In the latter case, non-stochastic integration can be used, carrying the exact same risks down the road. A similar situation may occur when neural networks are used to solve Kohn-Sham equations via direct minimization. Ultimately, if your approximation scheme involves a neural network, you must be incredibly careful with your integral estimation.
 
 {% if page.references %}
 <hr>
